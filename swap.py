@@ -35,11 +35,11 @@ def swap(swap_num):
 	run_cmd("git commit -m \"swap_\"" + str(swap_num))
 	run_cmd("git push")
 	run_cmd("git checkout -B room_" + str((swap_num + player_id) % num_players))
+	input("Press enter to pull")
+	run_cmd("git pull")
 	run_cmd("beep")
 	time.sleep(0.1)
 	run_cmd("beep")
-	input("Press enter to pull")
-	run_cmd("git pull")
 
 
 while True:
