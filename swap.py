@@ -34,17 +34,17 @@ def swap(swap_num):
 	run_cmd("git add -A")
 	run_cmd("git commit -m \"swap_\"" + str(swap_num))
 	run_cmd("git push")
-	run_cmd("git checkout -b room_" + str((swap_num + player_id) % num_players))
+	run_cmd("git checkout room_" + str((swap_num + player_id) % num_players))
 	input("Press enter to pull")
 	run_cmd("git pull")
-	run_cmd("beep")
-	time.sleep(0.1)
-	run_cmd("beep")
 
 
 while True:
+	run_cmd("beep")
+	time.sleep(0.1)
+	run_cmd("beep")
 	time.sleep(random.uniform(swap_min, swap_max))
-	for i in range(1,WARNING + 4):
+	for i in range(1,WARNING + 1):
 		print(str(WARNING - i) + "s UNTIL SWAP")
 		run_cmd("beep")
 		time.sleep(1)
