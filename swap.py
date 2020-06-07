@@ -37,6 +37,10 @@ def swap(swap_num):
 	run_cmd("git checkout -B room_" + str((swap_num + player_id) % num_players))
 	time.sleep(2)
 	run_cmd("git pull")
+	run_cmd("beep")
+	time.sleep(0.2)
+	run_cmd("beep")
+
 
 while True:
 	time.sleep(random.uniform(swap_min, swap_max))
