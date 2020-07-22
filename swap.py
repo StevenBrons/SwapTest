@@ -9,14 +9,14 @@ import os
 SWAP_NUM = 1
 WARNING = 3
 
-swap_min = int(input("Enter minimum swap-time (seconds): "))
-swap_max = int(input("Enter maximum swap-time (seconds): "))
-seed = input("Enter a random word: ")
-random.seed(seed) 
-num_players = int(input("Enter the number of players: "))
-player_id = int(input("Enter your player id (0-" + str(num_players - 1) + "): "))
-input("Press enter at the same time: ")
-
+def start():
+	swap_min = int(input("Enter minimum swap-time (seconds): "))
+	swap_max = int(input("Enter maximum swap-time (seconds): "))
+	seed = input("Enter a random word: ")
+	random.seed(seed) 
+	num_players = int(input("Enter the number of players: "))
+	player_id = int(input("Enter your player id (0-" + str(num_players - 1) + "): "))
+	input("Press enter at the same time: ")
 
 def run_cmd(cmd):
 	sp = subprocess.run(cmd.split())
@@ -27,8 +27,6 @@ def init():
 		run_cmd("git push --set-upstream origin room_" + str(i))
 	run_cmd("git checkout -B room_" + str(player_id))
 
-init()
-
 def swap(swap_num):
 	print("SWAP #" + str(swap_num) + " is occuring!")
 	run_cmd("git add -A")
@@ -38,6 +36,9 @@ def swap(swap_num):
 	input("Press enter to pull")
 	run_cmd("git pull")
 
+
+start()
+init()
 
 while True:
 	run_cmd("beep")
